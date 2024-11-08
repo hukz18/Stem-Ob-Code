@@ -1,7 +1,10 @@
 
 # Stem-OB: Generalizable Visual Imitation Learning with Stem-Like Convergent Observation through Diffusion Inversion
 
+[Project Page](https://hukz18.github.io/Stem-OB/) | [Paper](https://arxiv.org/abs/2411.04919) | [Video](https://youtu.be/dgXJmaAETV0)
+
 [![python](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/release/python-3124/)
+[![arXiv](https://img.shields.io/badge/arXiv-2411.04919-b31b1b.svg)](https://arxiv.org/abs/2411.04919)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/hukz18/DeFog/blob/master/LICENSE)
 
 - [Overview](#overview)
@@ -15,6 +18,8 @@
 ![teaser](figures/stem_ob.png)
 
 Visual imitation learning methods demonstrate strong performance, yet they lack generalization when faced with visual input perturbations like variations in lighting and textures. This limitation hampers their practical application in real-world settings. To address this, we propose Stem-OB that leverages the inversion process of pretrained image diffusion models to suppress low-level visual differences while maintaining high-level scene structures. This image inversion process is akin to transforming the observation into a shared representation, from which other observations also stem. Stem-OB offers a simple yet effective plug-and-play solution that stands in contrast to data augmentation approaches. It demonstrates robustness to various unspecified appearance changes without the need for additional training. We provide theoretical insights and empirical results that validate the efficacy of our approach in simulated and real settings. Stem-OB show an exceptionally significant improvement in real-world robotic tasks, where challenging light and appearance changes are present, with an average increase of 22.2% in success rates compared to the best baseline.
+
+This repository contains the code for the Stem-OB inversion tools, which can be used to preprocess your visual imitation learning dataset using DDPM or DDIM inversion methods. The code also includes tools for inverting observations stored in HDF5 files, as well as visualizing the observations in the HDF5 files.
 
 ## Installation
 
@@ -44,7 +49,7 @@ To invert observations stored in an HDF5 file and save the results in a new HDF5
 ```bash
 python invert_hdf5.py --original_file datasets/demo.hdf5 --new_file datasets/demo_output.hdf5 --num_trajs 3 --obs_key base_camera
 ```
-For this command, please download the demo hdf5 file from [here](https://drive.google.com/file/d/11UBiZ3SoHWjnlZ7jEtRwjSkcBLDRHuMG/view?usp=sharing) and put it in the datasets folder.
+For this command, please download the demo hdf5 file from [here](https://drive.google.com/file/d/11UBiZ3SoHWjnlZ7jEtRwjSkcBLDRHuMG/view?usp=sharing) and put it in the `datasets` folder.
 
 This command inverts the first 3 of trajectories in the `datasets/demo.hdf5` file, saving results to `datasets/demo_output.hdf5`. The complete list of arguments includes:
 ```
@@ -91,9 +96,25 @@ The left image is the original image, the middle image is the inverted image usi
 
 This project contains code licensed under both the MIT License and the Apache License 2.0.
 
-MIT License: The code developed for this project is licensed under the MIT License. This applies to all files outside of the `prompt_to_prompt` folder. You can find the full text of the MIT License in the LICENSE file at the root of this repository.
+The code developed for this project is licensed under the MIT License. This applies to all files outside of the `prompt_to_prompt` folder. You can find the full text of the MIT License in the LICENSE file at the root of this repository.
 
-Apache License 2.0: The `prompt_to_prompt` subfolder contains code licensed under the Apache License 2.0. This code has been included in accordance with the original licensing terms, and the Apache License 2.0 text can be found within.
+The `prompt_to_prompt` subfolder contains code licensed under the Apache License 2.0. This code has been included in accordance with the original licensing terms, and the Apache License 2.0 text can be found within.
+
+# Acknowledgments
+We thank [DDPM Inversion](https://github.com/inbarhub/DDPM_inversion) for their open source of DDPM inversion code, we also thank [RoboMimic](https://robomimic.github.io/) and [ManiSkill](https://www.maniskill.ai/home) for their open source of the imitation learning dataset.
 
 # Citation
+If you find this work useful, please consider citing our paper:
+
+```
+@misc{hu2024stemob,
+      title={Stem-OB: Generalizable Visual Imitation Learning with Stem-Like Convergent Observation through Diffusion Inversion}, 
+      author={Kaizhe Hu and Zihang Rui and Yao He and Yuyao Liu and Pu Hua and Huazhe Xu},
+      year={2024},
+      eprint={2411.04919},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2411.04919}, 
+}
+```
 
