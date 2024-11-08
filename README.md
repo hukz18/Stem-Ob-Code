@@ -1,7 +1,7 @@
 
 # Stem-OB: Generalizable Visual Imitation Learning with Stem-Like Convergent Observation through Diffusion Inversion
 
-[Project Page](https://hukz18.github.io/Stem-OB/) | [Paper](https://arxiv.org/abs/2411.04919) | [Video](https://youtu.be/dgXJmaAETV0)
+[Project Page](https://hukz18.github.io/Stem-OB/) | [Paper](https://arxiv.org/abs/2411.04919) | [Video](https://youtu.be/dgXJmaAETV0) | [Twitter](https://twitter.com/hkz222/status/1854780743685460235?s=19)
 
 [![python](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/release/python-3124/)
 [![arXiv](https://img.shields.io/badge/arXiv-2411.04919-b31b1b.svg)](https://arxiv.org/abs/2411.04919)
